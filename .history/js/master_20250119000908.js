@@ -1,0 +1,1 @@
+let landingPage = document.querySelector(landing - page)

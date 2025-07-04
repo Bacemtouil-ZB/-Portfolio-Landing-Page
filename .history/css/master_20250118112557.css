@@ -1,0 +1,88 @@
+:root {
+    --main--color: #ff9800;
+}
+
+body {
+    font-family: "open sans ", sans-serif;
+}
+
+/*start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url('../img/mohammad-rahmani-gA396xahf-Q-unsplash.jpg');
+    background-size: cover;
+}
+
+.landing-page .overlay {
+    background-color: rgba(0, 0, 0, .6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    padding: 5px;
+}
+
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.header-area .links {
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-left: 0;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.links li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.link li a {
+    text-decoration: none;
+}
+
+
+.link li a:hover,
+.link li a:hover active {
+    color: var(--main--color);
+}
+
+.introduction-texte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    line-height: 1.6;
+    font-size: small;
+}
+
+.introduction-texte h1 span {
+    font-size: 150%;
+    color: var(--main--color);
+}
+
+.introduction-texte p {
+    text-align: center;
+    width: 75%;
+    margin-left: 15%;
+
+}
+
+/*end landing page */

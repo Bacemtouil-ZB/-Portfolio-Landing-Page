@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+    <style>
+        /* Normalize CSS */
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        li,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Settings Box */
+        .settings-box {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            /* Changed from right to left */
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .settings-box.open {
+            transform: translateX(0);
+        }
+
+        .settings-box .toggle-settings {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .settings-box .settings-container {
+            margin-top: 10px;
+        }
+
+        .settings-box .options-box {
+            margin-top: 20px;
+        }
+
+        .settings-box .colors-list {
+            display: flex;
+            gap: 10px;
+        }
+
+        .settings-box .colors-list li {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .settings-box .colors-list li.active,
+        .settings-box .colors-list li:hover {
+            transform: scale(1.2);
+        }
+
+        /* Landing Page */
+        .landing-page {
+            position: relative;
+            height: 100vh;
+            background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .landing-page .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .landing-page .header-area {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .landing-page .logo img {
+            max-width: 150px;
+        }
+
+        .landing-page .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .landing-page .links a {
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .landing-page .links a:hover,
+        .landing-page .links a.active {
+            color: #ff9800;
+        }
+
+        .landing-page .introduction-texte {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .landing-page .introduction-texte h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .landing-page .introduction-texte p {
+            font-size: 1.2em;
+        }
+
+        .landing-page .introduction-texte span {
+            color: #ff9800;
+        }
+
+        @media (max-width: 768px) {
+            .landing-page .header-area {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .landing-page .links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .landing-page .introduction-texte h1 {
+                font-size: 2em;
+            }
+
+            .landing-page .introduction-texte p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--start setting box -->
+    <div class="settings-box">
+        <div class="toggle-settings">
+            <i class="fa-solid fa-gear" title="site settings"></i>
+        </div>
+        <div class="settings-container">
+            <h5>Testing options :</h5>
+        </div>
+        <div class="options-box">
+            <h4>Colors :</h4>
+            <ul class="colors-list">
+                <li class="active" data-color="#ff9800" style="background-color: #ff9800;"></li>
+                <li data-color="#ff5722" style="background-color: #ff5722;"></li>
+                <li data-color="aqua" style="background-color: aqua;"></li>
+                <li data-color="#4caf50" style="background-color: #4caf50;"></li>
+                <li data-color="#2196f3" style="background-color: #2196f3;"></li>
+            </ul>
+        </div>
+    </div>
+    <!--end setting box-->
+
+    <!--start landing page -->
+    <div class="landing-page">
+        <div class="overlay"></div>
+        <div class="header-area">
+            <div class="logo"><img src="imgs/logo.png" alt="GALAXY SPACE"> </div>
+            <ul class="links">
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="introduction-texte">
+            <h1>Welcome <span>legends</span></h1>
+            <p>to <span>GALAXY SPACE</span> Your go-to platform for innovative IT solutions, customized software
+                development, IT consulting, and premium tech products, empowering businesses and individuals to
+                reach their full potential.</p>
+        </div>
+    </div>
+    <!--end landing page -->
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleSettingsBtn = document.querySelector('.toggle-settings');
+            const settingsBox = document.querySelector('.settings-box');
+            const colorOptions = document.querySelectorAll('.colors-list li');
+
+            // Toggle settings box visibility
+            toggleSettingsBtn.addEventListener('click', () => {
+                settingsBox.classList.toggle('open');
+            });
+
+            // Change theme color
+            colorOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    document.documentElement.style.setProperty('--main-color', option.getAttribute('data-color'));
+                    colorOptions.forEach(li => li.classList.remove('active'));
+                    option.classList.add('active');
+                });
+            });
+
+            // Set initial color
+            document.documentElement.style.setProperty('--main-color', '#ff9800');
+        });
+    </script>
+</body>
+
+</html>

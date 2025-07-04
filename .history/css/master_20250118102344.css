@@ -1,0 +1,13 @@
+body {
+    font-family: "open sans ", sans-serif;
+}
+
+/*start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: ../img url();
+}
+
+
+
+/*end landing page */

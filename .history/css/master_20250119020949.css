@@ -1,0 +1,111 @@
+:root {
+    --main-color: #ff9800;
+}
+
+body {
+    font-family: "open sans ", sans-serif;
+}
+
+/*start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url('../imgs/05.jpg');
+    background-size: cover;
+}
+
+.landing-page .overlay {
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    padding: 5px;
+}
+
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.header-area .links {
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-left: 0;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.links li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.link li a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+
+
+.links li a:hover,
+.links li a.active {
+    color: var(--main-color);
+}
+
+.introduction-texte {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    line-height: 1.6;
+    font-size: small;
+}
+
+.introduction-texte h1 span {
+    font-size: 150%;
+    color: var(--main-color);
+}
+
+.introduction-texte p {
+    text-align: start;
+    width: 45%;
+    margin-left: 34%;
+    top: 50%;
+
+}
+
+.introduction-texte p span {
+    color: var(--main-color);
+    font-size: larger;
+
+}
+
+.introduction-texte h1 span {
+    height: fit-content;
+}
+
+.introduction-texte h1 {
+    margin-bottom: 1px;
+    /* Adjust this value as needed */
+}
+
+.introduction-texte p {
+    margin-top: 10px;
+    /* Adjust this value as needed */
+}
+
+/*end landing page */

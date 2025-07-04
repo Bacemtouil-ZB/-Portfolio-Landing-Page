@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation d'Hôtel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input,
+        .search-bar button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #218838;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .hotel-card {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hotel-card img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .hotel-card h2 {
+            margin: 0 0 10px 0;
+        }
+
+        .hotel-card p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Réservez votre Hôtel</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Entrez une destination">
+        <button id="searchButton">Rechercher</button>
+    </div>
+
+    <div class="container" id="hotelContainer">
+        <div class="hotel-card">
+            <img src="https://via.placeholder.com/150" alt="Hôtel 1">
+            <div>
+                <h2>Hôtel 1</h2>
+                <p>Emplacement: Paris, France</p>
+                <p>Prix: 120 € par nuit</p>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <img src="https://via.placeholder.com/150" alt="Hôtel 2">
+            <div>
+                <h2>Hôtel 2</h2>
+                <p>Emplacement: Lyon, France</p>
+                <p>Prix: 90 € par nuit</p>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <img src="https://via.placeholder.com/150" alt="Hôtel 3">
+            <div>
+                <h2>Hôtel 3</h2>
+                <p>Emplacement: Marseille, France</p>
+                <p>Prix: 110 € par nuit</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Réservation d'Hôtel. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', () => {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const hotelCards = document.querySelectorAll('.hotel-card');
+
+            hotelCards.forEach(card => {
+                const hotelInfo = card.textContent.toLowerCase();
+                card.style.display = hotelInfo.includes(searchInput) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

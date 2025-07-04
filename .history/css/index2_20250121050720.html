@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site E-commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .product .price {
+            font-size: 18px;
+            color: #28a745;
+            margin: 10px 0;
+        }
+
+        .product button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
+        .cart {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        .cart h2 {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenue sur notre boutique en ligne</h1>
+    </header>
+
+    <div class="container">
+        <div class="product" data-id="1" data-name="Produit 1" data-price="29.99">
+            <img src="https://via.placeholder.com/150" alt="Produit 1">
+            <h2>Produit 1</h2>
+            <p>Description du produit 1</p>
+            <p class="price">29.99 €</p>
+            <button>Ajouter au panier</button>
+        </div>
+
+        <div class="product" data-id="2" data-name="Produit 2" data-price="49.99">
+            <img src="https://via.placeholder.com/150" alt="Produit 2">
+            <h2>Produit 2</h2>
+            <p>Description du produit 2</p>
+            <p class="price">49.99 €</p>
+            <button>Ajouter au panier</button>
+        </div>
+
+        <div class="product" data-id="3" data-name="Produit 3" data-price="19.99">
+            <img src="https://via.placeholder.com/150" alt="Produit 3">
+            <h2>Produit 3</h2>
+            <p>Description du produit 3</p>
+            <p class="price">19.99 €</p>
+            <button>Ajouter au panier</button>
+        </div>
+
+        <div class="cart">
+            <h2>Panier</h2>
+            <ul id="cartItems"></ul>
+            <p>Total: <span id="totalPrice">0,00</span> €</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 E-commerce. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const cart = [];
+
+        document.querySelectorAll('.product button').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.parentElement;
+                const productId = product.getAttribute('data-id');
+                const productName = product.getAttribute('data-name');
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+
+                addToCart(productId, productName, productPrice);
+            });
+        });
+
+        function addToCart(id, name, price) {
+            const existingProduct = cart.find(product => product.id === id);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const totalPriceElement = document.getElementById('totalPrice');
+            let totalPrice = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${product.name} - ${product.quantity} x ${product.price.toFixed(2)} €`;
+                cartItems.appendChild(listItem);
+                totalPrice += product.price * product.quantity;
+            });
+
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

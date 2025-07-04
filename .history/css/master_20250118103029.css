@@ -1,0 +1,16 @@
+body {
+    font-family: "open sans ", sans-serif;
+}
+
+/*start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url('../img/mohammad-rahmani-gA396xahf-Q-unsplash.jpg');
+    background-size: cover;
+}
+
+.landing-page.overlay {}
+
+
+
+/*end landing page */

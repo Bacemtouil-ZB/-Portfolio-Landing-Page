@@ -1,0 +1,180 @@
+:root {
+    --main-color: #ff9800;
+}
+
+body {
+    font-family: "open sans ", sans-serif;
+}
+
+/*start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url('../imgs/05.jpg');
+    background-size: cover;
+}
+
+.landing-page .overlay {
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    padding: 15px;
+}
+
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.header-area .links {
+    list-style: none;
+    width: 50%;
+    text-align: right;
+    padding-left: 0;
+    padding: 15px;
+    font-size: 17px;
+    margin-left: 20%;
+
+}
+
+.links li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.link li a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+
+
+.links li a:hover,
+.links li a.active {
+    color: var(--main-color);
+}
+
+.introduction-texte {
+    position: absolute;
+    top: 40%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    line-height: 1.6;
+    font-size: medium;
+}
+
+.introduction-texte h1 span {
+    font-size: 150%;
+    color: var(--main-color);
+}
+
+.introduction-texte p {
+    text-align: start;
+    width: 45%;
+    margin-left: 35%;
+    top: 60%;
+
+}
+
+.introduction-texte p span {
+    color: var(--main-color);
+
+}
+
+.introduction-texte h1 span {
+    height: fit-content;
+}
+
+.introduction-texte h1 {
+    margin-bottom: 0px;
+    margin-right: 0px;
+    /* Adjust this value as needed */
+}
+
+.introduction-texte p {
+    margin-top: 1px;
+    /* Adjust this value as needed */
+}
+
+/*end landing page */
+/*start settings box */
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 175px;
+    min-height: 100vh;
+    transition: .3s;
+}
+
+.settings-box.open {
+    left: 0;
+}
+
+.settings-box .toggle-settings {
+    position: absolute;
+    right: -70px;
+    top: 120px;
+    background-color: #fff;
+    padding: 15px;
+    /* Adjust padding for better spacing */
+    width: 30px;
+    /* Increase width */
+    height: 30px;
+    /* Increase height */
+    text-align: center;
+    cursor: pointer;
+    font-size: 25px;
+    /* Increase icon size */
+    border-radius: 50%;
+    /* Make the container circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Use a variable for the icon color */
+    transition: transform 0.3s ease;
+}
+
+.settings-box .fa-gear:hover {
+    transform: scale(1.1);
+}
+
+.settings-box .toggle-settings i.fa-spin {
+    animation: spin 2s infinite linear;
+    /* Ensure spin animation is applied */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.settings-box .settings-container {
+    margin-top: 100%;
+    padding: 15px;
+    font-size: large;
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--main-color);
+}
+
+/*end settings box */
