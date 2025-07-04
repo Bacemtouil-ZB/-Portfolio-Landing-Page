@@ -18,5 +18,5 @@
   Engaging welcome section with branding and a brief about the services.
 
 - **Font Awesome Integration**  
-  Clean and intuitive icons used for UI elements (e.g., gear icon for settings).
+  Clean and intuitive icons used for UI elements .
 
